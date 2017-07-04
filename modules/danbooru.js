@@ -1,10 +1,9 @@
 var request = require('request');
 
 /**
- * The maximum number of attempts if the bot does not get an image at the first try.
- * This may happen if the first image is marked as Loli/shota. Danbooru will still list them,
- * but not show them unless you have a gold account. This means we may, once in a while, get
- * a response without an image path, so we cannot display anything. Therefore we try again.
+ * The maximum number of attempts if the bot does not get an image at the first try. This may happen if the first image is marked as Loli/shota. Danbooru will
+ * still list them, but not show them unless you have a gold account. This means we may, once in a while, get a response without an image path, so we cannot
+ * display anything. Therefore we try again.
  */
 var maxAttempts = 3;
 
@@ -30,11 +29,9 @@ module.exports.safe = function(message)
 }
 
 /**
- * If the channel is marked nsfw request an image.
- * Otherwise tell the user this is not possible.
- * @param {*} message The message that was received. Used to determine the channel (and the
- *                    user, if necessary).
- * @param {*} rating The rating to use (safe, questionable or explicit. See danbooru)
+ * If the channel is marked nsfw request an image. Otherwise tell the user this is not possible.
+ * @param {Message} message The message that was received. Used to determine the channel (and the user, if necessary).
+ * @param {String} rating The rating to use ('safe', 'questionable' or 'explicit'. See danbooru)
  */
 function requestNsfwImage(message, rating)
 {
@@ -46,11 +43,10 @@ function requestNsfwImage(message, rating)
 
 /**
  * Request an image from danbooru and post it to the channel.
- * @param {*} message The message that was received. Used to determine the channel
- * @param {*} rating The rating to use (safe, questionable or explicit. See danbooru)
- * @param {*} count The number of attempts that are made, if errors occur. You may get
- *                  responses without images (only visible for gold members) from danbooru,
- *                  in this case the bot requests another image.
+ * @param {Message} message The message that was received. Used to determine the channel
+ * @param {String} rating The rating to use ('safe', 'questionable' or 'explicit'. See danbooru)
+ * @param {Number} count  The number of attempts that are made, if errors occur. You may get responses without images (only visible for gold members) from
+ *                        danbooru, in this case the bot makes another request.
  */
 function requestImage(message, rating, attempts)
 {
