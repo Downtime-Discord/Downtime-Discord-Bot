@@ -1,8 +1,37 @@
 module.exports.dice = function(message){
   var args = message.content.slice(5);
-  var diceValue = parseInt(args) || 20;
-  var roll = Math.floor(Math.random() * diceValue) + 1;
-  message.reply(`you rolled a ${roll}`);
+  var d = args.indexOf('d');
+
+  if(d >= 0)
+  {
+    var dice = parseInt(args.slice(0, d)) || 1;
+    var eyes = parseInt(args.slice(d + 1)) || 6;
+
+    var list = "";
+    var sum = 0;
+
+    for(var i = 0; i < dice; ++i)
+    {
+      var e = Math.floor(Math.random() * eyes) + 1;
+      sum += e;
+
+      if(list.length > 0)
+      {
+        list += ", ";
+      }
+
+      list += e;
+    }
+
+    message.channel.send(message.author + " rolled " + sum + " (" + list + ")");
+  }
+  else
+  {
+    var diceValue = parseInt(args) || 20;
+
+    var roll = Math.floor(Math.random() * diceValue) + 1;
+    message.reply(`you rolled a ${roll}`);
+  }
 };
 
 module.exports.pick = function(message){

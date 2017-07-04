@@ -2,6 +2,7 @@ var ping = require('./ping');
 var million = require('./million');
 var flickr = require('./flickr');
 var danbooru = require('./danbooru');
+var random = require('./random.js');
 
 module.exports.messageRoutes = {
   // Ping
