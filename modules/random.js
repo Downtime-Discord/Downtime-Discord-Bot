@@ -21,7 +21,7 @@ module.exports.dice = function(message){
     values.sort();
     values.reverse();
 
-    message.channel.send(`${message.author} rolled ${sum} (${values.join(', ')})`);
+    message.reply(`you rolled a ${sum} (${values.join(', ')})`);
   }
   else
   {
