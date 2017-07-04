@@ -3,31 +3,27 @@ var request = require('request');
 /**
  * The maximum number of attempts if the bot does not get an image at the first try.
  * This may happen if the first image is marked as Loli/shota. Danbooru will still list them,
- * but not show them unless you have a gold account. Unfortunately this means we may, once in
- * a while, get a response without an image path, so we cannot display anything. Therefore we
- * try again.
+ * but not show them unless you have a gold account. This means we may, once in a while, get
+ * a response without an image path, so we cannot display anything. Therefore we try again.
  */
 var maxAttempts = 3;
 
-/**
- * Request and post an explicit image from danbooru
- */
+/** "Constant" for error messages. */
+var errorTryAgain = "An error occured. Please try again.";
+
+/** Request and post an explicit image from danbooru. */
 module.exports.nsfw = function(message)
 {
   requestNsfwImage(message, "explicit");
 }
 
-/**
- * Request and post a questionable image from danbooru
- */
+/** Request and post a questionable image from danbooru. */
 module.exports.ecchi = function(message)
 {
   requestNsfwImage(message, "questionable");
 }
 
-/**
- * Request and post a safe image from danbooru
- */
+/** Request and post a safe image from danbooru. */
 module.exports.safe = function(message)
 {
   requestImage(message, "safe", maxAttempts);
@@ -43,15 +39,9 @@ module.exports.safe = function(message)
 function requestNsfwImage(message, rating)
 {
   if(message.channel.nsfw)
-  {
-    console.log("Requesting " + rating + " image from danbooru ...");
     requestImage(message, rating, maxAttempts);
-  }
   else
-  {
-    console.log("Requesting " + rating + " image outside an nsfw channel. Denied.");
     message.channel.send("I'm sorry, " + message.author + ", i'm afraid i can't do that.")
-  }
 }
 
 /**
@@ -69,35 +59,19 @@ function requestImage(message, rating, attempts)
   {
     if(error !== null)
     {
-      console.log(error);
-
-      message.channel.send("An error occured. Pelase try again.");
-      return -1;
-    }
-    else if(body === null || body === "[]" )
-    {
-      console.log("Error: no body");
-      console.log(response);
-
-      message.channel.send("An error occured. Please try again.");
+      // Should probably tell the user what happened, at least give them a general idea ...
+      message.channel.send(errorTryAgain);
+      return; // No point in moving on, abort.
     }
 
     var arr = JSON.parse(body);
     var entry = arr[0];
 
     if(entry.hasOwnProperty("file_url"))
-    {
       message.channel.send("https://danbooru.donmai.us" + entry.file_url);
-    }
     else if(attempts > 0)
-    {
-      var attemptsLeft = attempts - 1;
-      console.log("Error: body did not contain file_url. Attempting again (" + (attemptsLeft) + " attempts left)");
-      onRequestImage(message, rating, attemptsLeft);
-    }
+      requestImage(message, rating, attempts - 1);
     else
-    {
-      message.channel.send("An error occured. Please try again.");
-    }
+      message.channel.send(errorTryAgain);
   });
 }

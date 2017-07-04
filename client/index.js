@@ -17,8 +17,8 @@ client.on('message', function(message) {
   }
   catch(e)
   {
-    console.log("A fatal error occured.")
-    console.log(e);
+    console.warn("A fatal error occured.")
+    console.warn(e);
   }
 });
 
