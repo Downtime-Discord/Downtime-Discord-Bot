@@ -34,4 +34,9 @@ module.exports.messageRoutes = {
   ">safe": danbooru.safe,
   ">ecchi": danbooru.ecchi,
   ">nsfw": danbooru.nsfw,
+
+  // Random
+  ">dice": random.dice,
+  ">roll": random.dice,
+  ">pick": random.pick,
 };
