@@ -28,10 +28,10 @@ module.exports.messageRoutes = {
   ">cat": flickr.kitty,
   ">kitty": flickr.kitty,
   ">betta": flickr.betta,
-  ">image": flickr.imageSearch
+  ">image": flickr.imageSearch,
 
   // danbooru
   ">safe": danbooru.safe,
   ">ecchi": danbooru.ecchi,
-  ">nsfw": danbooru.nsfw
+  ">nsfw": danbooru.nsfw,
 };
