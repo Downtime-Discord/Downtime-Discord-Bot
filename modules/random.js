@@ -7,9 +7,7 @@ module.exports.dice = function(message){
     var dice = parseInt(args.slice(0, d)) || 1;
     var eyes = parseInt(args.slice(d + 1)) || 6;
 
-    /* If we use a regular array here the values will be interpreted as strings for some
-     * reason, which causes problems when sorting.
-     */
+    // If we use a regular array here the values will be interpreted as strings for some reason, which causes problems when sorting.
     var values = new Uint32Array(dice);
     var sum = 0;
 
