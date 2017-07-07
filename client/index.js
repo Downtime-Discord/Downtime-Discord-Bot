@@ -25,13 +25,13 @@ client.on('message', function(message) {
 //create event listener for new members
 client.on('guildMemberAdd', member => {
     //Sends greeting to the default channel mentioning the member.
-    member.guild.defaultChannel.send(`Welcome to the server, ${member}! Use >help for a list of server commands.`);
+    member.guild.defaultChannel.send(`Welcome to the server, ${member}!`);
 })
 
 //create event listener for when members leave server
 client.on('guildMemberRemove', member => {
     //Sends leave message to the default channel 
-   // member.guild.defaultChannel.send(`${member} has left the server.`);
+    member.guild.defaultChannel.send(`${member} has left the server.`);
 })
 
 module.exports = client;
