@@ -61,6 +61,8 @@ module.exports.messageRoutes = {
   ">f": troll.F,
   ">rip": troll.rip,
   ">throw": troll.tablethrow,
+  ">lenny": troll.lenny,
+  ">lennyface": troll.lenny,
 
   // Help
   ">help": help

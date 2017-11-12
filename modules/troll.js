@@ -10,3 +10,7 @@ module.exports.tablethrow = function(message){
   message.channel.send("(╯°□°）╯︵ ┻━┻");
   message.channel.send("https://imgur.com/gallery/OHTVdwg");
 };
+
+module.exports.lenny = function(message){
+  message.channel.send("( ͡° ͜ʖ ͡°)");
+};
