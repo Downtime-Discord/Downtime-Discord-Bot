@@ -7,8 +7,7 @@ module.exports.rip = function(message){
 };
 
 module.exports.tablethrow = function(message){
-  message.channel.send("(╯°□°）╯︵ ┻━┻");
-  message.channel.send("https://imgur.com/gallery/OHTVdwg");
+  message.channel.send("(╯°□°）╯︵ ┻━┻\nhttps://imgur.com/gallery/OHTVdwg");
 };
 
 module.exports.lenny = function(message){

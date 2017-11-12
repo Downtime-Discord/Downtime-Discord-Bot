@@ -10,7 +10,7 @@ var troll     = require('./troll');
 async function help (message) {
   cmds = Object.keys(module.exports.messageRoutes);
   cmdstr = cmds.join("\n");
-  await message.channel.send("Bot Commands list\n\*" + cmdstr + "\*");
+  await message.author.sendMessage("Bot Commands list\n\*" + cmdstr + "\*");
 };
 
 module.exports.messageRoutes = {
