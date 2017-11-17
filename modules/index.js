@@ -4,8 +4,9 @@ var million   = require('./million');
 var ping      = require('./ping');
 var quote     = require('./quote');
 var random    = require('./random');
-var urban     = require('./urban');
 var troll     = require('./troll');
+var steam     = require('./steam');
+var urban     = require('./urban');
 
 async function help (message) {
   cmds = Object.keys(module.exports.messageRoutes);
