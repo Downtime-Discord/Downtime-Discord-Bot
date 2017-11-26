@@ -11,6 +11,7 @@ var urban     = require('./urban');
 async function help (message) {
   cmds = Object.keys(module.exports.messageRoutes);
   cmdstr = cmds.join("\n");
+  message.channel.send('Check your DMs');
   await message.author.sendMessage("Bot Commands list\n\*" + cmdstr + "\*");
 };
 
@@ -64,6 +65,12 @@ module.exports.messageRoutes = {
   ">throw": troll.tablethrow,
   ">lenny": troll.lenny,
   ">lennyface": troll.lenny,
+
+  ">items": steam.GetPlayerItems,
+  ">games": steam.GetGameIDs,
+  ">details": steam.GetPlayerDetails,
+  ">level": steam.GetPlayerLevel,
+  ">friends": steam.GetSteamFriends,
 
   // Help
   ">help": help
