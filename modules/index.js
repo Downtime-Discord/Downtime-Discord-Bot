@@ -1,10 +1,17 @@
-var danbooru  = require('./danbooru');
-var flickr    = require('./flickr');
-var million   = require('./million');
-var ping      = require('./ping');
-var quote     = require('./quote');
-var random    = require('./random');
-var urban     = require('./urban');
+const danbooru  = require('./danbooru')
+const flickr    = require('./flickr')
+const million   = require('./million')
+const ping      = require('./ping')
+const quote     = require('./quote')
+const random    = require('./random')
+const urban     = require('./urban')
+const troll     = require('./troll')
+
+async function help (message) {
+  cmds = Object.keys(module.exports.messageRoutes)
+  cmdstr = cmds.join("\n")
+  await message.author.sendMessage("Bot Commands list\n\*" + cmdstr + "\*")
+}
 
 module.exports.messageRoutes = {
   // Ping
@@ -32,6 +39,7 @@ module.exports.messageRoutes = {
   ">kitty": flickr.kitty,
   ">betta": flickr.betta,
   ">image": flickr.imageSearch,
+  ">hug": flickr.hug,
 
   // danbooru
   ">safe": danbooru.safe,
@@ -47,5 +55,15 @@ module.exports.messageRoutes = {
   ">urban": urban.urban,
 
   // Quote
-  ">quote": quote.quote
-};
+  ">quote": quote.quote,
+
+  // Troll commands
+  ">f": troll.F,
+  ">rip": troll.rip,
+  ">throw": troll.tablethrow,
+  ">lenny": troll.lenny,
+  ">lennyface": troll.lenny,
+
+  // Help
+  ">help": help
+}
