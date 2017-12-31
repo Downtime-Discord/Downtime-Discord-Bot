@@ -1,19 +1,18 @@
-var danbooru  = require('./danbooru');
-var flickr    = require('./flickr');
-var million   = require('./million');
-var ping      = require('./ping');
-var quote     = require('./quote');
-var random    = require('./random');
-var troll     = require('./troll');
-var steam     = require('./steam');
-var urban     = require('./urban');
+var danbooru  = require('./danbooru')
+var flickr    = require('./flickr')
+var million   = require('./million')
+var ping      = require('./ping')
+var quote     = require('./quote')
+var random    = require('./random')
+var troll     = require('./troll')
+var steam     = require('./steam')
+var urban     = require('./urban')
 
 async function help (message) {
-  cmds = Object.keys(module.exports.messageRoutes);
-  cmdstr = cmds.join("\n");
-  message.channel.send('Check your DMs');
-  await message.author.sendMessage("Bot Commands list\n\*" + cmdstr + "\*");
-};
+  cmds = Object.keys(module.exports.messageRoutes)
+  cmdstr = cmds.join("\n")
+  await message.author.sendMessage("Bot Commands list\n\*" + cmdstr + "\*")
+}
 
 module.exports.messageRoutes = {
   // Ping
@@ -76,4 +75,4 @@ module.exports.messageRoutes = {
 
   // Help
   ">help": help
-};
+}
