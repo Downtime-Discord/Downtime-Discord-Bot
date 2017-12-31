@@ -13,3 +13,7 @@ module.exports.tablethrow = function(message){
 module.exports.lenny = function(message){
   message.channel.send("( ͡° ͜ʖ ͡°)");
 };
+
+module.exports.shame = function(message){
+	message.channel.send("SHAME SHAME\nhttps://www.youtube.com/watch?v=SrDSqODtEFM");
+};

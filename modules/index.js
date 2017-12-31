@@ -65,12 +65,14 @@ module.exports.messageRoutes = {
   ">throw": troll.tablethrow,
   ">lenny": troll.lenny,
   ">lennyface": troll.lenny,
+  ">shameshame": troll.shame,
 
   ">items": steam.GetPlayerItems,
   ">games": steam.GetGameIDs,
   ">details": steam.GetPlayerDetails,
   ">level": steam.GetPlayerLevel,
   ">friends": steam.GetSteamFriends,
+  ">gameshame": steam.GetNumUnPlayedGames,
 
   // Help
   ">help": help
