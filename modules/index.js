@@ -66,7 +66,6 @@ module.exports.messageRoutes = {
   ">lennyface": troll.lenny,
   ">shameshame": troll.shame,
 
-  ">items": steam.GetPlayerItems,
   ">games": steam.GetGameIDs,
   ">details": steam.GetPlayerDetails,
   ">level": steam.GetPlayerLevel,
