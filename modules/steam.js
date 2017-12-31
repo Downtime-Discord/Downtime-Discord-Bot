@@ -6,9 +6,6 @@ var app = new SteamApi.App(keys.STEAM.KEY);
 var player = new SteamApi.Player(keys.STEAM.KEY);
 var user = new SteamApi.User(keys.STEAM.KEY);
 
-//TODO: ERROR HANDLING
-// CHANGE STEAM ID TO @ MENTION (LIKE IF IT'S LINKED TO STEAM)
-
 //Returns a list of all the AppIDs and names of all the games in the steam library
 //Use this command at your own risk
 module.exports.GetGameIDs = function(message){
