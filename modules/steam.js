@@ -62,7 +62,6 @@ module.exports.GetSteamFriends = function(message){
       message.channel.send('Check your DMs');
       message.author.sendMessage('Steam friends list: \n');
       friendArr.forEach(function(block){
-        console.log(block.length);
         message.author.sendMessage(block);
       });
     });
@@ -85,7 +84,6 @@ module.exports.GetNumUnPlayedGames = function(message){
         total += 1;
         if (game['playtimeForever'] == '0'){
           numUnplayed += 1;
-          //listUnplayed.push((game['appId'],game['name']));
           listUnplayed.push(game['name']);
         }
       });
