@@ -15,6 +15,6 @@ module.exports.lenny = function(message){
 };
 
 module.exports.shame = function(message){
-	message.channel.send("SHAME SHAME\nhttps://www.youtube.com/watch?v=SrDSqODtEFM")
+  message.channel.send("SHAME SHAME\nhttps://www.youtube.com/watch?v=SrDSqODtEFM")
 };
 

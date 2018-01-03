@@ -1,12 +1,12 @@
-var danbooru  = require('./danbooru')
-var flickr    = require('./flickr')
-var million   = require('./million')
-var ping      = require('./ping')
-var quote     = require('./quote')
-var random    = require('./random')
-var troll     = require('./troll')
-var steam     = require('./steam')
-var urban     = require('./urban')
+const danbooru  = require('./danbooru')
+const flickr    = require('./flickr')
+const million   = require('./million')
+const ping      = require('./ping')
+const quote     = require('./quote')
+const random    = require('./random')
+const troll     = require('./troll')
+const steam     = require('./steam')
+const urban     = require('./urban')
 
 async function help (message) {
   cmds = Object.keys(module.exports.messageRoutes)
@@ -66,7 +66,6 @@ module.exports.messageRoutes = {
   ">lennyface": troll.lenny,
   ">shameshame": troll.shame,
 
-  ">games": steam.GetGameIDs,
   ">details": steam.GetPlayerDetails,
   ">level": steam.GetPlayerLevel,
   ">friends": steam.GetSteamFriends,
