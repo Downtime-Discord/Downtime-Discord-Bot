@@ -8,6 +8,13 @@ const troll     = require('./troll')
 const steam     = require('./steam')
 const urban     = require('./urban')
 
+// listeners
+const ark       = require('./listen/ark')
+
+const listeners = [
+  ark.listen
+]
+
 async function help (message) {
   cmds = Object.keys(module.exports.messageRoutes)
   cmdstr = cmds.join("\n")
@@ -73,4 +80,8 @@ module.exports.messageRoutes = {
 
   // Help
   ">help": help
+}
+
+module.exports.listen = function(client) {
+  listeners.forEach(lFunc => lFunc(client))
 }
